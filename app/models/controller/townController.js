@@ -9,7 +9,7 @@ var Town        = require('../entity/town');
 router.post('/', function(req, res) {
 
     var townObject              = new Town();
-    townObject.name             = req.body.title;
+    townObject.name             = req.body.name;
     townObject.description      = req.body.description;
     townObject.state            = req.body.state;
     townObject.food             = req.body.food;
