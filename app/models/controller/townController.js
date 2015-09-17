@@ -53,7 +53,7 @@ router.put('/:id', function(req, res){
             res.send(err);
         }
         console.log("=============ENTRANDO =============================");
-        if(req.body.name != undefined){  console.log("entramos ===================");   townObject.name             = req.body.name;         }
+        if(req.body.name !== undefined){  console.log("entramos ===================");   townObject.name             = req.body.name;         }
         if("description" in req.body){     townObject.description      = req.body.description;  }
         if("state"       in req.body){     townObject.state            = req.body.state;        }
         if("food"        in req.body){     townObject.food             = req.body.food;         }
