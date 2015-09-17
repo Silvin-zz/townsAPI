@@ -43,6 +43,56 @@ router.get('/', function(req, res){
     });
 });
 
+
+
+router.put('/', function(req, res){
+
+    Town.findById(req.params._id, function(err, townObject){
+
+        if(err){
+            res.send(err);
+        }
+        if("name"        in req.body){     townObject.name             = req.body.name;         }
+        if("description" in req.body){     townObject.description      = req.body.description;  }
+        if("state"       in req.body){     townObject.state            = req.body.state;        }
+        if("food"        in req.body){     townObject.food             = req.body.food;         }
+        if("manners"     in req.body){     townObject.manners          = req.body.manners;      }
+        if("frontimage"  in req.body){     townObject.frontimage       = req.body.frontimage;   }
+        if("latitude"    in req.body){     townObject.latitude         = req.body.latitude;     }
+        if("longitude"   in req.body){     townObject.longitude        = req.body.longitude;    }
+        if("video"       in req.body){     townObject.video            = req.body.video;        }
+
+        if("images"       in req.body){
+            townObject.images = [];
+
+            for(var a = 0; a < req.body.images.length; a++){                    //recorremos las imagenes que nos enviaron :)
+                townObject.images.push({"url": req.body.images[a]});
+            }
+
+
+
+        }
+
+        townObject.save(function(err){
+            if(err){
+                res.send(err);
+            }
+            res.json(townObject);
+
+        });
+
+        
+
+
+
+
+
+
+    });
+
+
+});
+
 module.exports = router;
 
 
