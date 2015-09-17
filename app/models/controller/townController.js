@@ -45,9 +45,9 @@ router.get('/', function(req, res){
 
 
 
-router.put('/', function(req, res){
+router.put('/:id', function(req, res){
 
-    Town.findById(req.params._id, function(err, townObject){
+    Town.findById(req.params.id, function(err, townObject){
 
         if(err){
             res.send(err);
