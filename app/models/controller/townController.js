@@ -52,7 +52,7 @@ router.put('/:id', function(req, res){
         if(err){
             res.send(err);
         }
-        if("name"        in req.body){     townObject.name             = req.body.name;         }
+        if(req.body.name != undefined){     townObject.name             = req.body.name;         }
         if("description" in req.body){     townObject.description      = req.body.description;  }
         if("state"       in req.body){     townObject.state            = req.body.state;        }
         if("food"        in req.body){     townObject.food             = req.body.food;         }
